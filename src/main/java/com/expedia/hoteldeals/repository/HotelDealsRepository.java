@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.client.RestTemplate;
 
-import com.expedia.hoteldeals.entity.HotelOffers;
+import com.expedia.hoteldeals.entity.Deals;
 
 @Repository
 public class HotelDealsRepository {
@@ -12,10 +12,10 @@ public class HotelDealsRepository {
 	@Autowired
 	private RestTemplate restTemplate;
 
-	public HotelOffers getHotelOffers() {
+	public Deals getHotelOffers() {
 		
-		HotelOffers hotelOffers = restTemplate.getForObject(
-				"https://offersvc.expedia.com/offers/v2/getOffers?scenario=deal-finder&page=foo&uid=foo&productType=Hotel", HotelOffers.class);
+		Deals hotelOffers = restTemplate.getForObject(
+				"https://offersvc.expedia.com/offers/v2/getOffers?scenario=deal-finder&page=foo&uid=foo&productType=Hotel", Deals.class);
 		
 		return hotelOffers;
 	}
