@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.expedia.hoteldeals.R;
 import com.expedia.hoteldeals.entity.Deals;
@@ -19,9 +20,11 @@ public class HotelDealsController {
 	private HotelDealsService hotelDealsService;
 
 	@RequestMapping(value = "/hotel-deals", method = {RequestMethod.POST, RequestMethod.GET})
-	public String greeting(String destinationName, LocalDate startDate, LocalDate endDate, int days, int rating, Model model) {
+	public String greeting(String destinationName,@RequestParam(value = "startDate", required = false) LocalDate startDate,@RequestParam(value = "endDate", required = false) LocalDate endDate, Integer days, Integer rating, Model model) {
+		
+//		 LocalDate startDate, LocalDate endDate,
 
-		Deals hotelOffers = hotelDealsService.getHotelOffers();
+		Deals hotelOffers = hotelDealsService.getHotelOffers(destinationName, startDate, endDate, days, rating);
 		model.addAttribute(R.Attr.OFFER_INFO, hotelOffers.getOfferInfo());
 		
 		return R.View.HOTEL_DEALS;
