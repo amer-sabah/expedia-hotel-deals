@@ -23,13 +23,4 @@ public class Application {
 	public RestTemplate restTemplate(RestTemplateBuilder builder) {
 		return builder.build();
 	}
-
-//	@Bean
-//	public CommandLineRunner run(RestTemplate restTemplate) throws Exception {
-//		return args -> {
-//			HotelOffers hotelOffers = restTemplate.getForObject(
-//					"https://offersvc.expedia.com/offers/v2/getOffers?scenario=deal-finder&page=foo&uid=foo&productType=Hotel", HotelOffers.class);
-//			log.info(hotelOffers.toString());
-//		};
-//	}
 }
