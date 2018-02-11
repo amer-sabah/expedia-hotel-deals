@@ -17,8 +17,35 @@
 	<div class="container">
 
 		<div class="row">
+			<div class="col-md-12"></div>
+		</div>
 
-			<div class="col-md-12">
+		<div class="row">
+			<div class="col-md-5">
+				<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+					<ol class="carousel-indicators">
+						<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+						<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+						<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+					</ol>
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+							<img class="d-block w-100" src="https://i.imgur.com/ajO7ZFv.jpg" alt="First slide">
+						</div>
+						<div class="carousel-item">
+							<img class="d-block w-100" src="https://i.imgur.com/oTmbOp5.jpg" alt="Second slide">
+						</div>
+						<div class="carousel-item">
+							<img class="d-block w-100" src="https://i.imgur.com/IM8aamf.jpg" alt="Third slide">
+						</div>
+					</div>
+					<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span>
+					</a> <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span>
+					</a>
+				</div>
+
+			</div>
+			<div class="col-md-7">
 				<form action="" method="post">
 
 					<div class="form-group">
@@ -40,7 +67,7 @@
 						<label for="rating">Rating (1 >>>> 5)</label> <input type="range" class="form-control" id="rating" name="rating" min="1" max="5" />
 					</div>
 
-					<div class="form-group">
+					<div class="form-group text-right">
 						<button type="submit" class="btn btn-primary">Search</button>
 					</div>
 				</form>
@@ -51,21 +78,30 @@
 			<div class="col-md-12">
 				<div class="list-group">
 					<c:forEach var="hotelOffer" items="${hotelOffers}">
-					
+
 						<a href="${hotelOffer.hotelUrls.decodedHotelInfositeUrl }" class="list-group-item list-group-item-action flex-column align-items-start" target="_blank">
-							
-							<div class="row"><div class="col-md-2">
-							<img src="${hotelOffer.hotelInfo.hotelImageUrl }" alt="" border="0" height="100" width="130" style="max-width: 130px;"></div><div class="col-md-10">
-							<div class="d-flex w-100 justify-content-between">
-								
-								<h5 class="mb-1">${hotelOffer.hotelInfo.hotelName }</h5>
-								<small>${hotelOffer.destination.shortName }</small>
-							</div>
-							<p class="mb-1">${hotelOffer.destination.longName }</p> <small>${hotelOffer.offerDateRange.travelStartDate } - ${hotelOffer.offerDateRange.travelEndDate } <b>(${hotelOffer.offerDateRange.lengthOfStay } days)</b></small>
-							</div>
+
+							<div class="row">
+								<div class="col-md-2">
+									<img src="${hotelOffer.hotelInfo.hotelImageUrl }" alt="" border="0" height="100" width="130" style="max-width: 130px;">
+								</div>
+								<div class="col-md-10">
+									<div class="d-flex w-100 justify-content-between">
+
+										<h5 class="mb-1">${hotelOffer.hotelInfo.hotelName }</h5>
+										<span"><del>${hotelOffer.hotelPricingInfo.crossOutPriceValue}</del> <b>${hotelOffer.hotelPricingInfo.averagePriceValue } ${hotelOffer.hotelPricingInfo.currency}</b></span>
+
+
+									</div>
+									<div class="d-flex w-100 justify-content-between">
+										<span></span> <small>Rating: ${hotelOffer.hotelInfo.hotelStarRating }</small>
+									</div>
+									<p class="mb-1">${hotelOffer.destination.longName }</p>
+									<small>${hotelOffer.offerDateRange.travelStartDate } - ${hotelOffer.offerDateRange.travelEndDate } <b>(${hotelOffer.offerDateRange.lengthOfStay } days)</b></small>
+								</div>
 							</div>
 						</a>
-						
+
 					</c:forEach>
 
 
