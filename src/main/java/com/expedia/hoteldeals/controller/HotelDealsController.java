@@ -19,14 +19,13 @@ public class HotelDealsController {
 	@Autowired
 	private HotelDealsService hotelDealsService;
 
-	@RequestMapping(value = "/hotel-deals", method = {RequestMethod.POST, RequestMethod.GET})
-	public String greeting(String destinationName,@RequestParam(value = "startDate", required = false) LocalDate startDate,@RequestParam(value = "endDate", required = false) LocalDate endDate, Integer days, Integer rating, Model model) {
-		
-//		 LocalDate startDate, LocalDate endDate,
+	@RequestMapping(value = "/hotel-deals", method = { RequestMethod.POST, RequestMethod.GET })
+	public String greeting(String destinationName, @RequestParam(value = "startDate", required = false) LocalDate startDate, @RequestParam(value = "endDate", required = false) LocalDate endDate,
+			Integer days, Integer rating, Model model) {
 
 		Deals hotelOffers = hotelDealsService.getHotelOffers(destinationName, startDate, endDate, days, rating);
-		model.addAttribute(R.Attr.OFFER_INFO, hotelOffers.getOfferInfo());
-		
+		model.addAttribute(R.Attr.HOTEL_OFFERS, hotelOffers.getOffers().getHotel());
+
 		return R.View.HOTEL_DEALS;
 	}
 }
