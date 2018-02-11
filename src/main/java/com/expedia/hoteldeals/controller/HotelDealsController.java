@@ -19,7 +19,7 @@ public class HotelDealsController {
 	@Autowired
 	private HotelDealsService hotelDealsService;
 
-	@RequestMapping(value = "/hotel-deals", method = { RequestMethod.POST, RequestMethod.GET })
+	@RequestMapping(value = {"/", "/hotel-deals"}, method = { RequestMethod.POST, RequestMethod.GET })
 	public String greeting(String destinationName, @RequestParam(value = "startDate", required = false) LocalDate startDate, @RequestParam(value = "endDate", required = false) LocalDate endDate,
 			Integer days, Integer rating, Model model) {
 

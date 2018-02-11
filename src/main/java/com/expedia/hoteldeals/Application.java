@@ -28,4 +28,5 @@ public class Application extends WebMvcConfigurerAdapter {
 	public void addFormatters(FormatterRegistry registry) {
 		registry.addConverter(new LocalDateConverter(FORMAT_DATE));
 	}
+
 }
