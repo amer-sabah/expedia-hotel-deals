@@ -49,22 +49,22 @@
 				<form action="" method="post">
 
 					<div class="form-group">
-						<label for="inputAddress">Where do you want to go?</label> <input type="text" class="form-control" id="destinationName" name="destinationName" placeholder="Miami" />
+						<label for="inputAddress">Where do you want to go?</label> <input type="text" class="form-control" id="destinationName" name="destinationName" placeholder="Miami" value="${destinationName}" />
 					</div>
 					<div class="form-row">
 						<div class="form-group col-md-5">
-							<label for="startDate">Looking from</label> <input type="date" class="form-control" id="startDate" name="startDate" />
+							<label for="startDate">Looking from</label> <input type="date" class="form-control" id="startDate" name="startDate" value="${startDate}" />
 						</div>
 						<div class="form-group col-md-5">
-							<label for="endDate">to</label> <input type="date" class="form-control" id="endDate" name="endDate" />
+							<label for="endDate">to</label> <input type="date" class="form-control" id="endDate" name="endDate" value="${endDate}" />
 						</div>
 						<div class="form-group col-md-2">
-							<label for="days">Days</label> <input type="number" class="form-control" id="days" name="days" placeholder="3 days" />
+							<label for="days">Days</label> <input type="number" class="form-control" id="days" name="days" placeholder="3 days" value="${days}" />
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label for="rating">Rating (1 >>>> 5)</label> <input type="range" class="form-control" id="rating" name="rating" min="1" max="5" />
+						<label for="rating">Rating (1 >>>> 5)</label> <input type="range" class="form-control" id="rating" name="rating" min="1" max="5" value="${rating}" />
 					</div>
 
 					<div class="form-group text-right">
@@ -77,6 +77,12 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="list-group">
+
+					<c:if test="${empty hotelOffers.size()}">
+						<div class="alert alert-warning" role="alert">
+							Sorry, we could not found offers based on your filters. <a href="/" class="alert-link">Try again</a>
+						</div>
+					</c:if>
 					<c:forEach var="hotelOffer" items="${hotelOffers}">
 
 						<a href="${hotelOffer.hotelUrls.decodedHotelInfositeUrl }" class="list-group-item list-group-item-action flex-column align-items-start" target="_blank">
