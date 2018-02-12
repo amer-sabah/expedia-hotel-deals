@@ -4,6 +4,11 @@ import java.time.LocalDate;
 
 import lombok.Data;
 
+/**
+ * Offer date range entity
+ * @author Amer
+ *
+ */
 @Data
 public class OfferDateRange {
 

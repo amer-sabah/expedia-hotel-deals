@@ -13,15 +13,36 @@ import com.expedia.hoteldeals.R;
 import com.expedia.hoteldeals.entity.Deals;
 import com.expedia.hoteldeals.service.HotelDealsService;
 
+/**
+ * This class is responsible for handling and controlling all requests types
+ * 
+ * @author Amer
+ *
+ */
 @Controller
 public class HotelDealsController {
 
 	@Autowired
 	private HotelDealsService hotelDealsService;
 
+	/**
+	 * Getting the hotel offers bases on selected filtration
+	 * 
+	 * @param destinationName hotel location
+	 * @param startDate
+	 *            Trip start date
+	 * @param endDate
+	 *            Trip end date
+	 * @param days
+	 *            Length of stay
+	 * @param rating
+	 *            Hotel rating
+	 * @param model
+	 * @return View name
+	 */
 	@RequestMapping(value = { "/", "/hotel-deals" }, method = { RequestMethod.POST, RequestMethod.GET })
-	public String greeting(String destinationName, @RequestParam(value = R.Attr.START_DATE, required = false) LocalDate startDate, @RequestParam(value = R.Attr.END_DATE, required = false) LocalDate endDate,
-			Integer days, Integer rating, Model model) {
+	public String getHotelDeals(String destinationName, @RequestParam(value = R.Attr.START_DATE, required = false) LocalDate startDate,
+			@RequestParam(value = R.Attr.END_DATE, required = false) LocalDate endDate, Integer days, Integer rating, Model model) {
 
 		Deals hotelOffers = hotelDealsService.getHotelOffers(destinationName, startDate, endDate, days, rating);
 		model.addAttribute(R.Attr.HOTEL_OFFERS, hotelOffers.getOffers().getHotel());

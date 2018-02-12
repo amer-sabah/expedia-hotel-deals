@@ -10,6 +10,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 import com.expedia.hoteldeals.converter.LocalDateConverter;
 
+/**
+ * This class is responsible for booting the spring application
+ * @author Amer
+ *
+ */
 @SpringBootApplication
 public class Application extends WebMvcConfigurerAdapter {
 

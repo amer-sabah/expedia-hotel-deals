@@ -12,6 +12,11 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.expedia.hoteldeals.entity.Deals;
 
+/**
+ * Hotel deals data repository for managing hotel deals data
+ * @author Amer
+ *
+ */
 @Repository
 public class HotelDealsRepository {
 
@@ -41,6 +46,19 @@ public class HotelDealsRepository {
 	@Autowired
 	private RestTemplate restTemplate;
 
+	/**
+	 * Gets the hotel offers based on the selected filtration using Expedia API
+	 * @param destinationName hotel location
+	 * @param startDate
+	 *            Trip start date
+	 * @param endDate
+	 *            Trip end date
+	 * @param days
+	 *            Length of stay
+	 * @param rating
+	 *            Hotel rating
+	 * @return
+	 */
 	public Deals getHotelOffers(String destinationName, LocalDate startDate, LocalDate endDate, Integer days, Integer rating) {
 
 		UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromUriString(URI.OFFERS);
@@ -54,6 +72,19 @@ public class HotelDealsRepository {
 		return hotelOffers;
 	}
 
+	/**
+	 * Gets the hotel offers request parameters based on the selected filtration
+	 * @param destinationName hotel location
+	 * @param startDate
+	 *            Trip start date
+	 * @param endDate
+	 *            Trip end date
+	 * @param days
+	 *            Length of stay
+	 * @param rating
+	 *            Hotel rating
+	 * @return
+	 */
 	private MultiValueMap<String, String> getHotelOffersRequestParameters(String destinationName, LocalDate startDate, LocalDate endDate, Integer days, Integer rating) {
 
 		MultiValueMap<String, String> parameters = new LinkedMultiValueMap<>();

@@ -2,6 +2,11 @@ package com.expedia.hoteldeals.entity;
 
 import lombok.Data;
 
+/**
+ * Hotel entity
+ * @author Amer
+ *
+ */
 @Data
 public class Hotel {
 

@@ -5,6 +5,11 @@ import java.net.URLDecoder;
 
 import lombok.Data;
 
+/**
+ * Hotel urls entity
+ * @author Amer
+ *
+ */
 @Data
 public class HotelUrls {
 

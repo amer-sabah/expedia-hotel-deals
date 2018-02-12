@@ -5,6 +5,11 @@ import java.time.format.DateTimeFormatter;
 
 import org.springframework.core.convert.converter.Converter;
 
+/**
+ * Converter to convert String(Formatted Date) to LocalDate object
+ * @author Amer
+ *
+ */
 public final class LocalDateConverter implements Converter<String, LocalDate> {
 
 	private final DateTimeFormatter formatter;
