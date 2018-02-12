@@ -21,7 +21,7 @@ public class Application extends WebMvcConfigurerAdapter {
 	private static final String FORMAT_DATE = "yyyy-MM-dd";
 
 	public static void main(String args[]) {
-		SpringApplication.run(Application.class);
+		SpringApplication.run(Application.class)
 	}
 
 	@Bean
