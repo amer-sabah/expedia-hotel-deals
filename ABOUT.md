@@ -8,7 +8,7 @@ The Heroku and Travis CI are new experience for me, and I enjoyed my time during
 My accomplishments:
 1. Developed the simple site using Java.
 2. Used Spring as Java Framework because it is very easy to use and powerful.
-3. Used Lombok project to simplify the way when encapsulate classes using @Data.
+3. Used Lombok project to simplify the way in encapsulating classes using @Data.
 4. Used Junit for testing and applied on LocalDateConverterTest class as approach for testing.
 5. Used Github to manage source code.
 6. Used Bootstrap as front end framework to simplify the HTML and CSS part.
