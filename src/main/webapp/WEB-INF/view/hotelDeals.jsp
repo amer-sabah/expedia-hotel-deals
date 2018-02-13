@@ -13,7 +13,6 @@
 <title>Hotel Deals</title>
 </head>
 <body>
-	AMEEEER
 	<br />
 	<div class="container">
 
